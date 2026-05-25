@@ -1,17 +1,8 @@
 pipeline {
-    agent{
-        docker{
-            image 'node:10.24.0' //Image Docker Node.js
-            args '-p 5001:5001'
-        }
-    }
+    agent any
     
     stages {        
-        stage('Update npm '){
-            steps {
-                sh 'npm install -g npm@latest'
-            }
-        }
+       
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
