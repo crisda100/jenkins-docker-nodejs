@@ -1,15 +1,10 @@
 pipeline {
-    agent{
-        docker{
-            image 'node:16-alpine' //Image Docker Node.js
-            args '-p 5001:5001'
-        }
-    }
     
+    agent any
+         
     stages {        
         stage('Install Dependencies') {
             steps {
-                sh 'chown -R 980:976 "/.npm"'
                 sh 'npm install'
             }
         }
