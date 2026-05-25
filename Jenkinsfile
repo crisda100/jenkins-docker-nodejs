@@ -1,7 +1,7 @@
 pipeline {
     agent{
         docker{
-            image 'node:20-alpine' //Image Docker Node.js
+            image 'node:16-alpine' //Image Docker Node.js
             args '-p 5001:5001'
         }
     }
@@ -9,7 +9,6 @@ pipeline {
     stages {        
         stage('Install Dependencies') {
             steps {
-                sh 'npm install -g npm@latest' // Upgrades npm to support the lockfile
                 sh 'npm install'
             }
         }
